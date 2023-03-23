@@ -12,7 +12,6 @@ function App() {
         states: [],
         selectedCountry: '',
         selectedState: '',
-        count: 0,
         newCountry: '',
         newCountryCode: '',
         newState: '',
@@ -51,7 +50,7 @@ function App() {
     }
     function handleCountryChange(value) {
         let apiURL = 'https://xc-countries-api.fly.dev/api/countries/' + value.target.value + '/states/';
-        // setState({...localState, count: localState.count + 1});
+
         httpGET(apiURL)
             .then(states => {
                     setState({
@@ -68,18 +67,15 @@ function App() {
     return (
         <div>
             <div>
-                <h1>Select a country from the list </h1>
                 <SelectionBox
                     title="Country"
                     options={localState.countries}
-                    count={localState.count}
                     onChangeSelection={handleCountryChange}
                 />
                 <SelectionBox
                     title="State"
                     options={localState.states}
-                    count={localState.count}
-                    onChangeSelection={handleCountryChange}
+                    // onChangeSelection={handleCountryChange}
                 />
             </div>
 
