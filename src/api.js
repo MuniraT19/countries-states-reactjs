@@ -1,4 +1,4 @@
-function httpGet(theUrl) {
+function httpGET(theUrl) {
     return fetch(theUrl)
         .then(response => {
             if (!response.ok) {
@@ -17,4 +17,40 @@ function httpGet(theUrl) {
             return [];
         });
 }
+function httpPOST(url, payload) {
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+            return data;
+        });
+}
+function sortByName(resObj) {
+    // sorting the array by name
+    resObj.sort(function (a, b) {
+        const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        // names must be equal
+        return 0;
+    });
+    return resObj;
+}
 
+export {httpGET, httpPOST};

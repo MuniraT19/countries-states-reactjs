@@ -1,15 +1,17 @@
   
 export const SelectionBox = (props) => {
-    console.log(props);
-    let {countries, count, onClick} = props;
+    let {options, onChangeSelection, title} = props;
+
+    function handleChange(event) {
+        onChangeSelection(event);
+    }
     return (
         <>
-        <h2>Select Country:</h2>
-        <button onClick={onClick}>Clicked {count} times</button>
-        <select>
-            {countries && countries.map((option) => {
+        <h2>Select {title}:</h2>
+        <select onChange={handleChange}>
+            {options && options.map((option) => {
                 return (
-                    <option key={option.id} value={option.id}>{option.name}</option>
+                    <option key={option.id} value={option.code}>{option.name}</option>
                 );
             })}
         </select>
