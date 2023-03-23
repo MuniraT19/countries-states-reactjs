@@ -17,25 +17,30 @@ function httpGET(theUrl) {
             return [];
         });
 }
-function httpPOST(url, payload) {
-    fetch(url, {
+
+function httpPOST(theUrl, payload) {
+    return fetch(theUrl, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
     })
-        .then((response) => {
+        .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        .then((data) => {
-            console.log(data);
+        .then(data => {
             return data;
+        })
+        .catch(error => {
+            console.log('Fetch error:', error);
+            return [];
         });
 }
+
 function sortByName(resObj) {
     // sorting the array by name
     resObj.sort(function (a, b) {

@@ -38,7 +38,6 @@ function App() {
 
         httpPOST(postCountryURL, payload)
             .then(data => {
-                console.log(data);
                 setState({
                     ...localState,
                     countries: [...localState.countries, data],
