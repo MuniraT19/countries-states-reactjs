@@ -19,7 +19,7 @@ function App() {
     });
 
     useEffect(() => {
-        httpGET('https://xc-countries-api.fly.dev/api/countries/')
+        httpGET(postCountryURL)
             .then(data => {
                     setState({
                         ...localState,
@@ -48,7 +48,7 @@ function App() {
         );
     }
     function handleCountryChange(value) {
-        let apiURL = 'https://xc-countries-api.fly.dev/api/countries/' + value.target.value + '/states/';
+        let apiURL = postCountryURL + value.target.value + '/states/';
 
         httpGET(apiURL)
             .then(states => {
