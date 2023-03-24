@@ -5,6 +5,7 @@ import {httpGET,httpPOST} from "./api";
 
 function App() {
     const postCountryURL = "https://xc-countries-api.fly.dev/api/countries/";
+    const postStateURL = "https://xc-countries-api.fly.dev/api/states/";
 
     const [localState, setState] = useState({
         search: '',
@@ -15,7 +16,8 @@ function App() {
         newCountry: '',
         newCountryCode: '',
         newState: '',
-        newStateCode: ''
+        newStateCode: '',
+        countryIdForNewState: ''
     });
 
     useEffect(() => {
@@ -47,6 +49,26 @@ function App() {
             }
         );
     }
+    
+    function handleSubmitState() {
+        const {newState, newStateCode, countryIdForNewState} = localState;
+        const payload = {
+            code: newStateCode,
+            name: newState,
+            countryId: countryIdForNewState
+        };
+
+        httpPOST(postStateURL, payload)
+            .then(data => {
+                setState({
+                    ...localState,
+                    States: [...localState.states, data],
+                    newState: '',
+                    newCountryCode: ''
+                });
+            }
+        );
+    }
     function handleCountryChange(value) {
         let apiURL = postCountryURL + value.target.value + '/states/';
 
@@ -58,10 +80,15 @@ function App() {
                         states: states
                     });
                 }
-            );
+            ); 
     }
 
-    console.log("after Change:", localState);
+    function handleCountryChangeForAddingState(value) {
+        setState({
+            ...localState,
+            countryIdForNewState: value.target.value.toString()
+        });
+    }
 
     return (
         <div>
@@ -89,6 +116,22 @@ function App() {
                     <input type={"text"} value={localState.newCountryCode} onChange={e => setState({...localState, newCountryCode: e.target.value})}/>
                 </div>
                 <button onClick={handleSubmitCountry}>Add Country</button>
+            </div>
+            <div>
+                <h2>Add a new state</h2>
+                <div>
+                    <SelectionBox
+                    title="Country"
+                    options={localState.countries}
+                    onChangeSelection={handleCountryChangeForAddingState}
+                    forAddingState={true}
+                />
+                    <label>State Name: </label>
+                    <input type={"text"} value={localState.newState} onChange={e => setState({...localState, newState: e.target.value})}/>
+                    <label>State Code: </label>
+                    <input type={"text"} value={localState.newStateCode} onChange={e => setState({...localState, newStateCode: e.target.value})}/>
+                    <button onClick={handleSubmitState}>Add State</button>
+                </div>
             </div>
         </div>
     );
