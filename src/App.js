@@ -130,7 +130,9 @@ function App() {
                     <input type={"text"} value={localState.newState} onChange={e => setState({...localState, newState: e.target.value})}/>
                     <label>State Code: </label>
                     <input type={"text"} value={localState.newStateCode} onChange={e => setState({...localState, newStateCode: e.target.value})}/>
-                    <button onClick={handleSubmitState}>Add State</button>
+                    <div>
+                        <button onClick={handleSubmitState}>Add State</button>
+                    </div>
                 </div>
             </div>
         </div>
