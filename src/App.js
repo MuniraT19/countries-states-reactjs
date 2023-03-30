@@ -119,6 +119,7 @@ function App() {
                         <h2 className=''>Add a new country</h2>
                         <div>
                             <input
+                                class="form-control mt-2"
                                 placeholder = "Enter Country Name"
                                 type={"text"}
                                 value={localState.newCountry}
@@ -127,6 +128,7 @@ function App() {
                         </div>
                         <div>
                             <input
+                                class="form-control mt-2"
                                 placeholder = "Enter Country Code"
                                 type={"text"}
                                 value={localState.newCountryCode}
@@ -147,12 +149,14 @@ function App() {
                                 forAddingState={true}
                             />
                             <input
+                                class="form-control mt-2"
                                 placeholder = "Enter State Name"
                                 type={"text"}
                                 value={localState.newState}
                                 onChange={e => setState({ ...localState, newState: e.target.value })}
                             />
-                            <input 
+                            <input
+                                class="form-control mt-2"
                                 placeholder = "Enter State Code"
                                 type={"text"}
                                 value={localState.newStateCode}
