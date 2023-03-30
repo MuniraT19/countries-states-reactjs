@@ -114,36 +114,52 @@ function App() {
                     </div>
                 </div>
                 <div class="row centered-flex margin-top-big">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 d-flex flex-column">
 
                         <h2 className=''>Add a new country</h2>
                         <div>
-                            <label>Country Name: </label>
-                            <input type={"text"} value={localState.newCountry} onChange={e => setState({ ...localState, newCountry: e.target.value })} />
+                            <input
+                                placeholder = "Enter Country Name"
+                                type={"text"}
+                                value={localState.newCountry}
+                                onChange={e => setState({ ...localState, newCountry: e.target.value })}
+                            />
                         </div>
                         <div>
-                            <label>Country Code: </label>
-                            <input type={"text"} value={localState.newCountryCode} onChange={e => setState({ ...localState, newCountryCode: e.target.value })} />
+                            <input
+                                placeholder = "Enter Country Code"
+                                type={"text"}
+                                value={localState.newCountryCode}
+                                onChange={e => setState({ ...localState, newCountryCode: e.target.value })}
+                            />
                         </div>
-                        <button type='button' className='btn btn-success' onClick={handleSubmitCountry}>Add Country</button>
+                        <button type='button' className='btn btn-success mt-3 w-100' onClick={handleSubmitCountry}>Add Country</button>
                     </div>
                 </div>
                 <div class="row centered-flex margin-top-big">
                     <div class="col-sm-6">
                         <h2>Add a new state</h2>
-                        <div>
+                        <div class="d-flex flex-column">
                             <SelectionBox
                                 title="Country"
                                 options={localState.countries}
                                 onChangeSelection={handleCountryChangeForAddingState}
                                 forAddingState={true}
                             />
-                            <label>State Name: </label>
-                            <input type={"text"} value={localState.newState} onChange={e => setState({ ...localState, newState: e.target.value })} />
-                            <label>State Code: </label>
-                            <input type={"text"} value={localState.newStateCode} onChange={e => setState({ ...localState, newStateCode: e.target.value })} />
+                            <input
+                                placeholder = "Enter State Name"
+                                type={"text"}
+                                value={localState.newState}
+                                onChange={e => setState({ ...localState, newState: e.target.value })}
+                            />
+                            <input 
+                                placeholder = "Enter State Code"
+                                type={"text"}
+                                value={localState.newStateCode}
+                                onChange={e => setState({ ...localState, newStateCode: e.target.value })}
+                            />
                             <div>
-                                <button type='button' className='btn btn-success' onClick={handleSubmitState}>Add State</button>
+                                <button type='button' className='btn btn-success mt-3 w-100' onClick={handleSubmitState}>Add State</button>
                             </div>
                         </div>
                     </div>
