@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.centered-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.margin-top-big {
+  margin-top: 50px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

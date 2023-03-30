@@ -7,7 +7,7 @@ export const SelectionBox = (props) => {
     }
     return (
         <>
-        <h2>Select {title} from the list:</h2>
+        <h4>Select {title} from the list:</h4>
         <select onChange={handleChange}>
             {options && options.map((option) => {
                 if (forAddingState) {

@@ -96,35 +96,40 @@ function App() {
 
         <>
             <div class="container" >
-                <div class="col-sm-4">
-                    <SelectionBox
-                        title="Country"
-                        options={localState.countries}
-                        onChangeSelection={handleCountryChange}
-                    />
-                    <SelectionBox
-                        title="State"
-                        options={localState.states}
-                    // onChangeSelection={handleCountryChange}
-                    />
-                </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-
-                            <h2 className=''>Add a new country</h2>
-                            <div>
-                                <label>Country Name: </label>
-                                <input type={"text"} value={localState.newCountry} onChange={e => setState({ ...localState, newCountry: e.target.value })} />
-                            </div>
-                            <div>
-                                <label>Country Code: </label>
-                                <input type={"text"} value={localState.newCountryCode} onChange={e => setState({ ...localState, newCountryCode: e.target.value })} />
-                            </div>
-                            <button type='button' className='btn btn-success' onClick={handleSubmitCountry}>Add Country</button>
-                        </div>
+                <div class="row centered-flex">
+                    <div class="col-md-6">
+                        <SelectionBox
+                            title="Country"
+                            options={localState.countries}
+                            onChangeSelection={handleCountryChange}
+                        />
                     </div>
-                <div class="row">
-                    <div class="col-sm-4">
+                </div>
+                <div class="row centered-flex">
+                    <div class="col-md-6">
+                        <SelectionBox
+                            title="State"
+                            options={localState.states}
+                        />
+                    </div>
+                </div>
+                <div class="row centered-flex margin-top-big">
+                    <div class="col-sm-6">
+
+                        <h2 className=''>Add a new country</h2>
+                        <div>
+                            <label>Country Name: </label>
+                            <input type={"text"} value={localState.newCountry} onChange={e => setState({ ...localState, newCountry: e.target.value })} />
+                        </div>
+                        <div>
+                            <label>Country Code: </label>
+                            <input type={"text"} value={localState.newCountryCode} onChange={e => setState({ ...localState, newCountryCode: e.target.value })} />
+                        </div>
+                        <button type='button' className='btn btn-success' onClick={handleSubmitCountry}>Add Country</button>
+                    </div>
+                </div>
+                <div class="row centered-flex margin-top-big">
+                    <div class="col-sm-6">
                         <h2>Add a new state</h2>
                         <div>
                             <SelectionBox
