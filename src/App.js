@@ -83,6 +83,7 @@ function App() {
                 });
             }
             );
+
     }
 
     function handleCountryChangeForAddingState(value) {
@@ -95,9 +96,9 @@ function App() {
     return (
 
         <>
-            <div class="container" >
-                <div class="row centered-flex">
-                    <div class="col-md-6">
+            <div className="container" >
+                <div className="row centered-flex">
+                    <div className="col-md-6">
                         <SelectionBox
                             title="Country"
                             options={localState.countries}
@@ -105,21 +106,21 @@ function App() {
                         />
                     </div>
                 </div>
-                <div class="row centered-flex">
-                    <div class="col-md-6">
+                <div className="row centered-flex">
+                    <div className="col-md-6">
                         <SelectionBox
                             title="State"
                             options={localState.states}
                         />
                     </div>
                 </div>
-                <div class="row centered-flex margin-top-big">
-                    <div class="col-sm-6 d-flex flex-column">
+                <div className="row centered-flex margin-top-big">
+                    <div className="col-sm-6 d-flex flex-column">
 
                         <h2 className=''>Add a new country</h2>
                         <div>
                             <input
-                                class="form-control mt-2"
+                                className="form-control mt-2"
                                 placeholder = "Enter Country Name"
                                 type={"text"}
                                 value={localState.newCountry}
@@ -128,7 +129,7 @@ function App() {
                         </div>
                         <div>
                             <input
-                                class="form-control mt-2"
+                                className="form-control mt-2"
                                 placeholder = "Enter Country Code"
                                 type={"text"}
                                 value={localState.newCountryCode}
@@ -138,10 +139,10 @@ function App() {
                         <button type='button' className='btn btn-success mt-3 w-100' onClick={handleSubmitCountry}>Add Country</button>
                     </div>
                 </div>
-                <div class="row centered-flex margin-top-big">
-                    <div class="col-sm-6">
+                <div className="row centered-flex margin-top-big">
+                    <div className="col-sm-6">
                         <h2>Add a new state</h2>
-                        <div class="d-flex flex-column">
+                        <div className="d-flex flex-column">
                             <SelectionBox
                                 title="Country"
                                 options={localState.countries}
@@ -149,14 +150,14 @@ function App() {
                                 forAddingState={true}
                             />
                             <input
-                                class="form-control mt-2"
+                                className="form-control mt-2"
                                 placeholder = "Enter State Name"
                                 type={"text"}
                                 value={localState.newState}
                                 onChange={e => setState({ ...localState, newState: e.target.value })}
                             />
                             <input
-                                class="form-control mt-2"
+                                className="form-control mt-2"
                                 placeholder = "Enter State Code"
                                 type={"text"}
                                 value={localState.newStateCode}
